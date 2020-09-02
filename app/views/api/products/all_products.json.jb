@@ -1,6 +1,15 @@
-{
-  name: @product.name,
-  price: @product.price,
-  image_url: @product.image_url,
-  description: @product.description,
-}
+json = []
+index = 0
+while index < @products.length
+  product = products[index]
+  product_hash = {
+    name: product.name,
+    price: product.price,
+    image_url: product.image_url,
+    description: product.description,
+  }
+  index += 1
+  json << product_hash
+end
+
+return
