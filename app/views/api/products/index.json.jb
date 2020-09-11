@@ -6,7 +6,7 @@ while index < @products.length
     id: product.id,
     name: product.name,
     price: product.price,
-    image_url: product.image_url,
+    images: product.images,
     description: product.description,
     created_at: product.friendly_updated_at,
     is_discounted?: product.is_discounted?,

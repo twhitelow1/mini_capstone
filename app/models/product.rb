@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, numericality: { greateer_than: 0 }
-  validates :description, length: { in: 2..500 }
+  validates :description, length: { in: 2..1500 }
 
   belongs_to :supplier
   has_many :images
