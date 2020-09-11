@@ -1,0 +1,14 @@
+json = []
+index = 0
+while index < @images.length
+  image = @images[index]
+  image_hash = {
+    id: image.id,
+    url: image.url,
+    product_id: image.product_id,
+  }
+  index += 1
+  json << image_hash
+end
+
+return json

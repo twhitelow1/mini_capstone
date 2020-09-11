@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all.order("id")
+    @products = Product.all
 
     if params[:search]
       @products = @products.where("name ILike ?", "%#{params[:search]}%")
