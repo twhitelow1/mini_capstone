@@ -1,6 +1,9 @@
 {
   id: @product.id,
   name: @product.name,
+  brand: @product.brand,
+  year: @product.year,
+  type: @product.type,
   price: @product.price,
   images: @product.images,
   description: @product.description,

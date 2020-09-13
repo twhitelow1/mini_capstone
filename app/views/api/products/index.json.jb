@@ -5,6 +5,8 @@ while index < @products.length
   product_hash = {
     id: product.id,
     name: product.name,
+    brand: product.brand,
+    type: product.type,
     price: product.price,
     images: product.images,
     description: product.description,

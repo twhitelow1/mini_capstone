@@ -25,9 +25,12 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.name = params[:name]
     @product.price = params[:price] || @product.price
-    # @product.image_url = params[:image_url] || @product.image_url
+    @product.brand = params[:brand] || @product.brand
+    @product.type = params[:type] || @product.type
+    @product.year = params[:year] || @product.year
     @product.description = params[:description] || @product.description
     if @product.save
+      Image.create!(product_id: @product.id, url params[:image_url])
       render "show.json.jb"
     else
       render json: { errors: @product.errors.full_messages }, status: 422
@@ -48,6 +51,9 @@ class Api::ProductsController < ApplicationController
   def create
     @product = Product.new(
       name: params[:name],
+      brand: params[:brand],
+      year: params[:year],
+      type: params[:type],
       price: params[:price],
       description: params[:description],
     )
