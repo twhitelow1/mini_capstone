@@ -30,7 +30,7 @@ class Api::ProductsController < ApplicationController
     @product.year = params[:year] || @product.year
     @product.description = params[:description] || @product.description
     if @product.save
-      Image.create!(product_id: @product.id, url params[:image_url])
+      Image.create!(product_id: @product.id, url: params[:image_url])
       render "show.json.jb"
     else
       render json: { errors: @product.errors.full_messages }, status: 422
