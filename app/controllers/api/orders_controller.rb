@@ -4,11 +4,11 @@ class Api::OrdersController < ApplicationController
       user_id: params[:user_id],
       product_id: params[:product_id],
       quantity: params[:quantity],
-      subtotal: params[:subtotal],
-      tax: params[:tax],
-      total: params[:total],
+      # subtotal: params[:subtotal],
+      # tax: params[:tax],
+      # total: params[:total],
     )
-    if order.save
+    if @order.save
       render json: { order: @order }
     else
       render json: { errors: @order.errors.full_messages }, status: 422
