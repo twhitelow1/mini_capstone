@@ -1,14 +1,18 @@
 json = []
 index = 0
 while index < @orders.length
-  image = @orders[index]
-  image_hash = {
-    id: image.id,
-    url: image.url,
-    product_id: image.product_id,
+  order = @orders[index]
+  order_hash = {
+    id: order.id,
+    user_id: order.user_id,
+    product_id: order.product_id,
+    quantity: order.quantity,
+    subtotal: order.subtotal,
+    tax: order.tax,
+    total: order.total,
   }
   index += 1
-  json << image_hash
+  json << order_hash
 end
 
 return json
