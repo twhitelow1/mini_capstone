@@ -3,8 +3,9 @@ class Product < ApplicationRecord
   validates :price, numericality: { greateer_than: 0 }
   validates :description, length: { in: 2..1500 }
 
-  belongs_to :supplier
+  has_many :orders
   has_many :images
+
   # def supplier
   #   Supplier.find_by(id: supplier_id)
   # end

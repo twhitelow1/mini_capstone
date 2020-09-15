@@ -1,5 +1,6 @@
 class Api::ProductsController < ApplicationController
   def index
+    # if current_user
     @products = Product.all
 
     if params[:search]
@@ -19,6 +20,9 @@ class Api::ProductsController < ApplicationController
     end
 
     render "index.json.jb"
+    # else
+    #   render json: []
+    # end
   end
 
   def update
