@@ -25,9 +25,10 @@ class Api::OrdersController < ApplicationController
       if current_user.id == @order.user_id
         render "show.json.jb"
       else
-        render json: {message: "Sorry, it seems this order doesn not belong to you."}
+        render json: { message: "Sorry, it seems this order doesn not belong to you." }
       end
-      else 
-      render json: {message: "You must be logged in to view this order."}
+    else
+      render json: { message: "You must be logged in to view this order." }
     end
+  end
 end
