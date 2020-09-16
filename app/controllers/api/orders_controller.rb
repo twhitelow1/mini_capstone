@@ -36,13 +36,7 @@ class Api::OrdersController < ApplicationController
 
   def index
     if current_user
-      orders = Order.all
-      @orders = []
-      orders.each do |order|
-        if current_user.id == order.user_id
-          @orders << order
-        end
-      end
+      @orders = current_user.orders
       render "index.json.jb"
     else
       render json: { message: "You must be logged in to view your orders." }
