@@ -2,13 +2,14 @@ class Api::OrdersController < ApplicationController
   def create
     if current_user
       product = Product.find_by(id: params[:product_id])
+      quantity = params[:quantity].to_f
       @order = Order.new(
-        user_id: params[:user_id],
+        user_id: current_user.id,
         product_id: params[:product_id],
         quantity: params[:quantity],
-        subtotal: product.price * params[:quantity].to_f,
-        tax: product.tax * params[:quantity].to_f,
-        total: product.total * params[:quantity].to_f,
+        subtotal: product.price * quantity,git 
+        tax: product.tax * quantity,
+        total: product.total * quantity,
       )
       if @order.save
         render json: { order: @order }
