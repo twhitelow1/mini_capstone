@@ -2,10 +2,11 @@ json = []
 index = 0
 while index < @orders.length
   order = @orders[index]
+  product = Product.find_by(id: params[:product_id])
   order_hash = {
     id: order.id,
     user_id: order.user_id,
-    product_id: order.product_id,
+    product: order.product,
     quantity: order.quantity,
     subtotal: order.subtotal,
     tax: order.tax,
