@@ -1,5 +1,5 @@
 class Api::ProductsController < ApplicationController
-  beforea_action :authenticate_admin, except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
     @products = Product.all

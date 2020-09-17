@@ -20,12 +20,8 @@ class Api::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(id: params[:id])
-    if current_user.id == @order.user_id
+    @order = current_user.orders
       render "show.json.jb"
-    else
-      render json: { message: "Sorry, it seems this order doesn not belong to you." }
-    end
   end
 
   def index
