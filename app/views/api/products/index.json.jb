@@ -12,6 +12,7 @@ while index < @products.length
     description: product.description,
     created_at: product.friendly_updated_at,
     is_discounted?: product.is_discounted?,
+    categories: product.categories,
     tax: product.tax,
     total: product.total,
   }
