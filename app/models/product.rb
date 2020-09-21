@@ -3,8 +3,9 @@ class Product < ApplicationRecord
   validates :price, numericality: { greateer_than: 0 }
   validates :description, length: { in: 2..1500 }
 
-  has_many :orders
+  has_many :orders, through: :carted_products
   has_many :images
+  has_many :carted_products
   has_many :category_products
   has_many :categories, through: :category_products
 
