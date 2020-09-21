@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 2020_09_18_010730) do
     t.string "name"
     t.integer "price"
     t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "supplier_id"
     t.integer "year"
     t.string "brand"
     t.string "type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -83,4 +83,5 @@ ActiveRecord::Schema.define(version: 2020_09_18_010730) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
   end
+
 end
